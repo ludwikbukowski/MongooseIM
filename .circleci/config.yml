@@ -229,7 +229,6 @@ workflows:
       - mim2/build_and_small_tests:
           name: otp_21_3_small_tests
           otp: 1:21.3.8.4-1
-          context: mongooseim-org
 #      - mim/build_and_small_tests:
 #          name: otp_22_small_tests
 #          otp: 1:22.0.4-1
@@ -245,7 +244,6 @@ workflows:
           otp: 1:21.3.8.4-1
           preset: mysql_redis
           db: mysql
-          context: mongooseim-org
           requires:
             - otp_21_3_small_tests
 #      - mim/big_tests:
