@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  mim:
+  mim2:
     commands:
       install_erlang:
         parameters:
@@ -214,8 +214,6 @@ orbs:
                   if [ -n "${AWS_SECRET_ACCESS_KEY}" ]; then tools/circleci-upload-to-s3.sh; fi
           - store_test_results:
               path: big_tests
-
-
 workflows:
   version: 2
   build_and_test:
@@ -228,7 +226,7 @@ workflows:
 #          name: debian_stretch
 #          platform: debian_stretch
 #          context: mongooseim-org
-      - mim/build_and_small_tests:
+      - mim2/build_and_small_tests:
           name: otp_21_3_small_tests
           otp: 1:21.3.8.4-1
           context: mongooseim-org
@@ -242,7 +240,7 @@ workflows:
 #          context: mongooseim-org
 #          requires:
 #            - otp_22_small_tests
-      - mim/big_tests:
+      - mim2/big_tests:
           name: mysql_redis
           otp: 1:21.3.8.4-1
           preset: mysql_redis
